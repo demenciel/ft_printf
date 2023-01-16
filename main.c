@@ -2,6 +2,9 @@
 
 int main()
 {
-    ft_printf("hell");
+    char *h = "hello";
+
+    printf("%s", h);
+    ft_printf("42");
     return (0);
 }
