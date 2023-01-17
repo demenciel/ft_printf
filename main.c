@@ -1,10 +1,12 @@
 #include "ft_printf.h"
+#include <stdio.h>
 
 int main()
 {
-    char *h = "hello";
+    char str[] = "hello";
+    char c = 'c';
 
-    printf("%s", h);
-    ft_printf("42");
+    printf("%s world!\n", str);
+    ft_printf("%s%c muther %s fucker", str, c, str);
     return (0);
 }
