@@ -37,8 +37,8 @@ void check_format_sp(char c, va_list args)
         // pass va_arg as a decimal output */
     else if (c == 'i')
         ft_putnbr_fd((va_arg(args, int)), var.fd);
-/*     else if (c == 'u')
-        // pass va_arg as a unsigned int output
+    else if (c == 'u')
+        ft_putnbr_unsigned_fd((va_arg(args, unsigned int)), var.fd);    /*
     else if (c == 'x')
         // pass va_arg as a hexa number in minuscule output
     else if (c == 'X')

@@ -14,5 +14,6 @@ var_list var;
 
 int ft_printf(const char *format, ...);
 void check_format_sp(char c, va_list args);
+void ft_putnbr_unsigned_fd(unsigned int u, int fd);
 
 #endif
