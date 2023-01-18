@@ -1,30 +1,30 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
-int main()
+int	main(void)
 {
-    char            str[] = "hello";
-    char            c = 'c';
-    int             i = 753;
-    unsigned int    u = -120;
+	char str[] = "hello";
+	char c = 'c';
+	int i = 753;
+	unsigned int u = -120;
 
-    int x = 5;
-    int *ptr = &x;
-    
-    printf("%i%s fucker\n", i, str);
-    ft_printf("%i%s fucker\n", i, str);
-    
-    printf("%d%s fucker\n", i, str);
-    ft_printf("%d%s fucker\n", i, str);
+	int x = 5;
+	int *ptr = &x;
 
-    printf("hello world!%% hell\n");
-    ft_printf("hello world!%% hell\n");
+	printf("%i%s fucker\n", i, str);
+	ft_printf("%i%s fucker\n", i, str);
 
-    printf("%u\n", u);
-    ft_printf("%u\n", u);
+	printf("%d%s fucker\n", i, str);
+	ft_printf("%d%s fucker\n", i, str);
 
-    printf("%x\n", 91825);
-    ft_printf("%x\n", 91825);
+	printf("hello world!%% hell\n");
+	ft_printf("hello world!%% hell\n");
 
-    return (0);
+	printf("%u\n", u);
+	ft_printf("%u\n", u);
+
+	printf("%x\n", 91825);
+	ft_printf("%x\n", 91825);
+
+	return (0);
 }
