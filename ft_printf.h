@@ -9,11 +9,13 @@ typedef struct format_list
     char *temp;
     int i;
     int fd;
-}               var_list;
+} var_list;
 var_list var;
 
 int ft_printf(const char *format, ...);
 void check_format_sp(char c, va_list args);
 void ft_putnbr_unsigned_fd(unsigned int u, int fd);
+void ft_itoa_to_hexa(long unsigned int nb, char c);
+
 
 #endif

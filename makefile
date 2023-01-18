@@ -2,6 +2,11 @@ NAME = libftprintf.a
 
 SRC =	ft_printf.c \
 		ft_putnbr_unsigned_fd.c \
+		ft_putpointer_fd.c \
+		ft_itoa_to_hexa.c \
+		
+
+		
 
 OBJS = $(SRC:%.c=%.o)
 

@@ -31,18 +31,17 @@ void check_format_sp(char c, va_list args)
         ft_putchar_fd(va_arg(args, int), var.fd);
     else if (c == 's')
         ft_putstr_fd(va_arg(args, char*), var.fd);
-/*     else if (c == 'p')
-        // pointeur afficher as a hexa output
-    else if (c == 'd')
-        // pass va_arg as a decimal output */
-    else if (c == 'i')
+    // else if (c == 'p')
+    //     ft_putpointer_fd(va_arg(args, void*), var.fd);
+    else if (c == 'i' || c ==  'd')
         ft_putnbr_fd((va_arg(args, int)), var.fd);
     else if (c == 'u')
-        ft_putnbr_unsigned_fd((va_arg(args, unsigned int)), var.fd);    /*
+        ft_putnbr_unsigned_fd((va_arg(args, unsigned int)), var.fd);
     else if (c == 'x')
-        // pass va_arg as a hexa number in minuscule output
+        ft_itoa_to_hexa((va_arg(args, long unsigned int)), c);
     else if (c == 'X')
-        // pass va_arg as a hexa number in capital output
+        ft_itoa_to_hexa((va_arg(args, long unsigned int)), c);
+/*
     else if (c == '%')
         // pass va_arg as a percentage output */
 }
