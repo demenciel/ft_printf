@@ -6,19 +6,19 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:30:40 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/18 13:39:43 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/18 14:04:01 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static unsigned int	n_len(long long n)
+static unsigned int	n_len(long long unsigned n)
 {
 	unsigned int	i;
 
 	i = 0;
-    if (n == 0)
-        return (1);
+	if (n == 0)
+		return (1);
 	if (n < 0)
 		i++;
 	while (n > 0)
@@ -46,14 +46,14 @@ char	*low_to_up(char c, char *s)
 	return (s);
 }
 
-void	ft_itoa_to_hexa(long long nb, char c)
+void	ft_itoa_to_hexa(long long unsigned nb, char c)
 {
-	char	*str;
-	char	*base;
-	int		i;
+	char			*str;
+	char			*base;
+	unsigned int	i;
 
-    if (nb == 0)
-        ft_putnbr_fd(0, 1);
+	if (nb == 0)
+		ft_putnbr_fd(0, 1);
 	base = "0123456789abcdef";
 	str = malloc(sizeof(char) * n_len(nb) + 1);
 	if (!str)

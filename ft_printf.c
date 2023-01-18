@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:30:32 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/18 13:38:01 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/18 14:40:46 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,21 @@ int	ft_printf(const char *format, ...)
 	var.fd = STDOUT_FILENO;
 	var.i = 0;
 	va_start(args, format);
-	var.temp = malloc(sizeof(char) * ft_strlen(format) + 1);
-	ft_memmove(var.temp, (char *)format, ft_strlen(format) + 1);
-	while (var.temp[var.i])
+
+	if (format == NULL)
+		return(0);
+	while (format[var.i])
 	{
-		if (var.temp[var.i] == '%')
+		if (format[var.i] == '%')
 		{
 			var.i++;
-			check_format_sp(var.temp[var.i], args);
+			check_format_sp(format[var.i], args);
 		}
 		else
-			ft_putchar_fd(var.temp[var.i], var.fd);
+			ft_putchar_fd(format[var.i], var.fd);
 		var.i++;
 	}
-	free(var.temp);
-	return (ft_strlen(format));
+	return (ft_strlen(format) - 1);
 }
 
 void	check_format_sp(char c, va_list args)
@@ -43,16 +43,16 @@ void	check_format_sp(char c, va_list args)
 		ft_putchar_fd(va_arg(args, int), var.fd);
 	else if (c == 's')
 		ft_putstr_fd(va_arg(args, char *), var.fd);
-/* 	else if (c == 'p')
-	    ft_putpointer_fd(va_arg(args, void*)); */
+	else if (c == 'p')
+		ft_putpointer_fd(va_arg(args, unsigned long));
 	else if (c == 'i' || c == 'd')
 		ft_putnbr_fd((va_arg(args, int)), var.fd);
 	else if (c == 'u')
 		ft_putnbr_unsigned_fd((va_arg(args, unsigned int)), var.fd);
 	else if (c == 'x')
-		ft_itoa_to_hexa((va_arg(args, long long int)), c);
+		ft_itoa_to_hexa((va_arg(args, long long unsigned int)), c);
 	else if (c == 'X')
-		ft_itoa_to_hexa((va_arg(args, long long int)), c);
+		ft_itoa_to_hexa((va_arg(args, long long unsigned int)), c);
 	else if (c == '%')
 		ft_putchar_fd('%', var.fd);
 }
