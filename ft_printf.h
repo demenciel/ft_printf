@@ -13,8 +13,9 @@
 #ifndef LIBFT_PRINTF
 # define LIBFT_PRINTF
 
-# include "./libft/libft.h"
 # include <stdarg.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 typedef struct format_list
 {
@@ -29,5 +30,9 @@ void		check_format_sp(char c, va_list args);
 void		ft_putnbr_unsigned_fd(unsigned int u, int fd);
 void		ft_itoa_to_hexa(long long unsigned nb, char c);
 void		ft_putpointer_fd(uintptr_t y);
+void		ft_putchar_fd(char c, int fd);
+void		ft_putnbr_fd(int n, int fd);
+void		ft_putstr_fd(char *s, int fd);
+size_t		ft_strlen(const char *str);
 
 #endif
