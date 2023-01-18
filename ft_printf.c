@@ -20,7 +20,7 @@ int	ft_printf(const char *format, ...)
 	var.i = 0;
 	va_start(args, format);
 
-	if (format == NULL)
+	if (*format == '\0')
 		return(0);
 	while (format[var.i])
 	{
@@ -33,7 +33,7 @@ int	ft_printf(const char *format, ...)
 			ft_putchar_fd(format[var.i], var.fd);
 		var.i++;
 	}
-	return (ft_strlen(format) - 1);
+	return (var.i - 1);
 }
 
 void	check_format_sp(char c, va_list args)
