@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:30:32 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/18 12:32:24 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/18 13:38:01 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	check_format_sp(char c, va_list args)
 		ft_putchar_fd(va_arg(args, int), var.fd);
 	else if (c == 's')
 		ft_putstr_fd(va_arg(args, char *), var.fd);
-	// else if (c == 'p')
-	//     ft_putpointer_fd(va_arg(args, void*), var.fd);
+/* 	else if (c == 'p')
+	    ft_putpointer_fd(va_arg(args, void*)); */
 	else if (c == 'i' || c == 'd')
 		ft_putnbr_fd((va_arg(args, int)), var.fd);
 	else if (c == 'u')

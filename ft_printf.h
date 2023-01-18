@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:30:27 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/18 12:32:28 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/18 13:40:39 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ int			ft_printf(const char *format, ...);
 void		check_format_sp(char c, va_list args);
 void		ft_putnbr_unsigned_fd(unsigned int u, int fd);
 void		ft_itoa_to_hexa(long long nb, char c);
+void 		ft_putpointer_fd(void *x);
 
 #endif

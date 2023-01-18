@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:30:40 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/18 12:32:22 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/18 13:39:43 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ static unsigned int	n_len(long long n)
 	unsigned int	i;
 
 	i = 0;
+    if (n == 0)
+        return (1);
 	if (n < 0)
 		i++;
 	while (n > 0)
 	{
-		n = n / 10;
+		n = n / 16;
 		i++;
 	}
 	return (i);
@@ -50,15 +52,12 @@ void	ft_itoa_to_hexa(long long nb, char c)
 	char	*base;
 	int		i;
 
+    if (nb == 0)
+        ft_putnbr_fd(0, 1);
 	base = "0123456789abcdef";
 	str = malloc(sizeof(char) * n_len(nb) + 1);
 	if (!str)
 		return ;
-	if (nb < 0)
-	{
-		ft_putchar_fd('-', 1);
-		nb = (~nb) + 1;
-	}
 	str[n_len(nb)] = '\0';
 	i = n_len(nb) - 1;
 	while (nb > 0)
