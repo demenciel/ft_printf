@@ -38,11 +38,10 @@ void check_format_sp(char c, va_list args)
     else if (c == 'u')
         ft_putnbr_unsigned_fd((va_arg(args, unsigned int)), var.fd);
     else if (c == 'x')
-        ft_itoa_to_hexa((va_arg(args, long unsigned int)), c);
+        ft_itoa_to_hexa((va_arg(args, long long int)), c);
     else if (c == 'X')
-        ft_itoa_to_hexa((va_arg(args, long unsigned int)), c);
-/*
+        ft_itoa_to_hexa((va_arg(args, long long int)), c);
     else if (c == '%')
-        // pass va_arg as a percentage output */
+        ft_putchar_fd('%', var.fd);
 }
 

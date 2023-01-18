@@ -5,9 +5,6 @@ SRC =	ft_printf.c \
 		ft_putpointer_fd.c \
 		ft_itoa_to_hexa.c \
 		
-
-		
-
 OBJS = $(SRC:%.c=%.o)
 
 LIBFT = ft_printf/libft/libft.a
