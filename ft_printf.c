@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:30:32 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/18 14:40:46 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/19 10:54:43 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,44 +15,56 @@
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
+	int		count;
 
 	var.fd = STDOUT_FILENO;
-	var.i = 0;
 	va_start(args, format);
-
+	count = 0;
 	if (*format == '\0')
-		return(0);
-	while (format[var.i])
+		return (0);
+	while (*format)
 	{
-		if (format[var.i] == '%')
+		if (*format == '%')
 		{
-			var.i++;
-			check_format_sp(format[var.i], args);
+			format++;
+			count += check_format_sp(*format, args);
 		}
 		else
-			ft_putchar_fd(format[var.i], var.fd);
-		var.i++;
+		{
+			count += ft_putchar_fd(format[var.i], var.fd);
+		}
+		format++;
 	}
-	return (var.i - 1);
+	va_end(args);
+	return (count);
 }
 
-void	check_format_sp(char c, va_list args)
+int	check_format_sp(char c, va_list args)
 {
-	var.fd = STDOUT_FILENO;
+	int	count;
+
+	count = 0;
 	if (c == 'c')
-		ft_putchar_fd(va_arg(args, int), var.fd);
+		count += ft_putchar_fd(va_arg(args, int), 1);
 	else if (c == 's')
-		ft_putstr_fd(va_arg(args, char *), var.fd);
+		count += ft_putstr_fd(va_arg(args, char *), 1);
 	else if (c == 'p')
-		ft_putpointer_fd(va_arg(args, unsigned long));
+		count += ft_putpointer_fd(va_arg(args, unsigned long));
 	else if (c == 'i' || c == 'd')
-		ft_putnbr_fd((va_arg(args, int)), var.fd);
+		count += ft_putnbr_fd((va_arg(args, int)), 1);
 	else if (c == 'u')
-		ft_putnbr_unsigned_fd((va_arg(args, unsigned int)), var.fd);
+		count += ft_putnbr_unsigned_fd((va_arg(args, unsigned int)), 1);
 	else if (c == 'x')
-		ft_itoa_to_hexa((va_arg(args, long long unsigned int)), c);
+		count += ft_itoa_to_hexa((va_arg(args, long long unsigned int)), c);
 	else if (c == 'X')
-		ft_itoa_to_hexa((va_arg(args, long long unsigned int)), c);
+		count += ft_itoa_to_hexa((va_arg(args, long long unsigned int)), c);
 	else if (c == '%')
-		ft_putchar_fd('%', var.fd);
+	{
+		char c;
+		c = '%';
+		write(1, &c, 1);
+		count++; 
+	}
+		
+	return (count);
 }

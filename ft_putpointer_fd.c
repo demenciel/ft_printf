@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:30:15 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/18 14:24:04 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/19 10:36:26 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static unsigned int	n_len(long long unsigned n)
 
 	i = 0;
 	if (n == 0)
-		write(1, "0x0", 2);
+		ft_putstr_fd("0x0", 2);
 	if (n < 0)
 		i++;
 	while (n > 0)
@@ -29,18 +29,19 @@ static unsigned int	n_len(long long unsigned n)
 	return (i);
 }
 
-static void	ft_pointer_to_hexa(long long unsigned nb)
+static int	ft_pointer_to_hexa(long long unsigned nb)
 {
 	char			*str;
 	char			*base;
 	unsigned int	i;
 
+	var.count = 0;
 	if (nb == 0)
 		ft_putnbr_fd(0, 1);
 	base = "0123456789abcdef";
 	str = malloc(sizeof(char) * n_len(nb) + 1);
 	if (!str)
-		return ;
+		return (1);
 	str[n_len(nb)] = '\0';
 	i = n_len(nb) - 1;
 	while (nb > 0)
@@ -49,12 +50,14 @@ static void	ft_pointer_to_hexa(long long unsigned nb)
 		nb = nb / 16;
 		i--;
 	}
-	write(1, "0x", 2);
-	ft_putstr_fd(str, 1);
+	var.count += ft_putstr_fd("0x", 2);
+	var.count += ft_putstr_fd(str, 1);
 	free(str);
+	return (var.count);
 }
 
-void	ft_putpointer_fd(uintptr_t y)
+int ft_putpointer_fd(uintptr_t y)
 {
-	ft_pointer_to_hexa(y);
+	var.count += ft_pointer_to_hexa(y);
+	return (var.count);
 }
