@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:30:27 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/19 12:24:10 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/19 12:55:49 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ typedef struct format_list
 	char	*temp;
 	int		i;
 	int		fd;
-	int		*count;
+	int		count;
+	int		stack[10];
+	int		top;
 }			var_list;
 var_list	var;
 
