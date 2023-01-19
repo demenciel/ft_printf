@@ -4,10 +4,15 @@
 
 int main()
 {
-    ft_printf(" %c %c %c ", '2', '1', 0);
-    ft_printf("%d\n", ft_printf(" %c %c %c ", '2', '1', 0));
+    int ptr = 0;
+    void *x;
 
-    printf(" %c %c %c ", '2', '1', 0);
-    printf("%d\n", printf(" %c %c %c ", '2', '1', 0));
+    x = &ptr;
+
+    ft_printf(" %p ", x);
+    ft_printf("%d\n", ft_printf(" %p ", x));
+
+    printf(" %p ", x);
+    printf("%d\n", printf(" %p ", x));
  
 }
