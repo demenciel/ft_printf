@@ -4,10 +4,10 @@
 
 int main()
 {
-    ft_printf(" %x ", LONG_MAX);
-    ft_printf("%x\n", ft_printf(" %x ", LONG_MAX));
+    ft_printf(" %c %c %c ", '2', '1', 0);
+    ft_printf("%d\n", ft_printf(" %c %c %c ", '2', '1', 0));
 
-    printf(" %x ", LONG_MAX);
-    printf("%x\n", printf(" %x ", LONG_MAX));
+    printf(" %c %c %c ", '2', '1', 0);
+    printf("%d\n", printf(" %c %c %c ", '2', '1', 0));
  
 }

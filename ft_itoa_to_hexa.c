@@ -6,13 +6,13 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:30:40 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/19 13:27:37 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/19 14:31:26 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static unsigned int	n_len(long long unsigned n)
+static unsigned int	n_len(uintptr_t n)
 {
 	unsigned int	i;
 
@@ -46,14 +46,12 @@ char	*low_to_up(char c, char *s)
 	return (s);
 }
 
-
-
-int	ft_itoa_to_hexa(long long unsigned nb, char c)
+int	ft_itoa_to_hexa(uintptr_t nb, char c)
 {
 	char			*str;
 	char			*base;
 	unsigned int	i;
-	int count; 
+	int				count;
 
 	count = 0;
 	if (nb == 0)
