@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:30:40 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/19 10:36:47 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/19 13:27:37 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ char	*low_to_up(char c, char *s)
 	return (s);
 }
 
+
+
 int	ft_itoa_to_hexa(long long unsigned nb, char c)
 {
 	char			*str;
@@ -55,7 +57,7 @@ int	ft_itoa_to_hexa(long long unsigned nb, char c)
 
 	count = 0;
 	if (nb == 0)
-		ft_putnbr_fd(0, 1);
+		return (count += ft_putchar_fd('0', 1));
 	base = "0123456789abcdef";
 	str = malloc(sizeof(char) * n_len(nb) + 1);
 	if (!str)
