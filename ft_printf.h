@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:30:27 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/19 14:31:49 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/20 14:03:11 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct format_list
 {
 	char	*temp;
+	char	*base;
 	int		i;
 	int		fd;
 	int		count;
@@ -32,7 +33,7 @@ int			ft_printf(const char *format, ...);
 int			check_format_sp(char c, va_list args);
 
 int			ft_putnbr_unsigned_fd(unsigned int u, int fd);
-int			ft_itoa_to_hexa(uintptr_t nb, char c);
+int			ft_puthexa(unsigned int nb, char c);
 int			ft_putpointer_fd(uintptr_t y);
 int			ft_putchar_fd(char c, int fd);
 int			ft_putnbr_fd(int n, int fd);
