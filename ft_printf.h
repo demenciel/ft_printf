@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 14:10:15 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/20 15:57:38 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:14:13 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct format_list
 struct format_list	g_var;
 
 int					ft_printf(const char *format, ...);
+int 				format_iter(int count, const char *format, va_list args);
 int					check_format_sp(char c, va_list args);
 
 int					ft_putnbr_unsigned_fd(unsigned int u, int fd);
