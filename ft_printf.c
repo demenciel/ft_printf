@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:30:32 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/20 15:53:37 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/20 15:57:50 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	ft_printf(const char *format, ...)
 	va_list	args;
 	int		count;
 
-	g_var.fd = STDOUT_FILENO;
 	va_start(args, format);
 	count = 0;
 	if (*format == '\0')
@@ -31,7 +30,7 @@ int	ft_printf(const char *format, ...)
 		}
 		else
 		{
-			count += ft_putchar_fd(format[g_var.i], g_var.fd);
+			count += ft_putchar_fd(format[g_var.i], 1);
 		}
 		format++;
 	}

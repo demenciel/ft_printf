@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 09:54:26 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/20 15:53:46 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/20 15:58:25 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_putnbr_fd(int n, int fd)
 	g_var.count = 0;
 	g_var.top = 0;
 	if (n == 0)
-		return (g_var.count += write(1, "0", 1));
+		return (g_var.count += write(fd, "0", 1));
 	if (n == -2147483648)
 		return (ft_putstr_fd("-2147483648", 1));
 	else
