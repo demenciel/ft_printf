@@ -6,23 +6,21 @@
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 12:30:05 by acouture          #+#    #+#              #
-#    Updated: 2023/01/20 15:50:01 by acouture         ###   ########.fr        #
+#    Updated: 2023/01/20 15:53:17 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 		libftprintf.a
 
-SRC_PATH = 	src/
-
-SRC =		$(SRC_PATH)ft_printf.c \
-			$(SRC_PATH)ft_putnbr_unsigned_fd.c \
-			$(SRC_PATH)ft_putpointer_fd.c \
-			$(SRC_PATH)ft_puthexa.c \
-			$(SRC_PATH)ft_putpointer_fd.c \
-			$(SRC_PATH)ft_putchar_fd.c \
-			$(SRC_PATH)ft_putnbr_fd.c \
-			$(SRC_PATH)ft_putstr_fd.c \
-			$(SRC_PATH)ft_strlen.c \
+SRC =		ft_printf.c \
+			ft_putnbr_unsigned_fd.c \
+			ft_putpointer_fd.c \
+			ft_puthexa.c \
+			ft_putpointer_fd.c \
+			ft_putchar_fd.c \
+			ft_putnbr_fd.c \
+			ft_putstr_fd.c \
+			ft_strlen.c \
 		
 DEF_COLOR = \033[0;39m
 GREEN = \033[0;92m
