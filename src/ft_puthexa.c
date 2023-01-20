@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_to_hexa.c                                  :+:      :+:    :+:   */
+/*   ft_puthexa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:30:40 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/19 14:31:26 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/20 14:35:49 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-static unsigned int	n_len(uintptr_t n)
+static unsigned int	n_len(unsigned int n)
 {
 	unsigned int	i;
 
@@ -46,7 +46,7 @@ char	*low_to_up(char c, char *s)
 	return (s);
 }
 
-int	ft_itoa_to_hexa(uintptr_t nb, char c)
+int	ft_puthexa(unsigned int nb, char c)
 {
 	char			*str;
 	char			*base;

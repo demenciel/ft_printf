@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 09:53:15 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/20 14:00:14 by acouture         ###   ########.fr       */
+/*   Created: 2023/01/06 09:54:39 by acouture          #+#    #+#             */
+/*   Updated: 2023/01/20 14:35:59 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-int	ft_putchar_fd(char c, int fd)
+size_t	ft_strlen(const char *str)
 {
-	return (write(fd, &c, 1));
+	size_t	len;
+
+	len = 0;
+	if (!str)
+		return (0);
+	while (str[len] != '\0')
+		len++;
+	return (len);
 }

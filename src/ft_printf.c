@@ -6,11 +6,11 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:30:32 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/20 14:23:43 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/20 14:35:33 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int	ft_printf(const char *format, ...)
 {

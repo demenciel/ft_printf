@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/06 09:54:39 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/20 14:21:38 by acouture         ###   ########.fr       */
+/*   Created: 2023/01/13 09:55:15 by acouture          #+#    #+#             */
+/*   Updated: 2023/01/20 14:35:57 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-size_t	ft_strlen(const char *str)
+int	ft_putstr_fd(char *s, int fd)
 {
-	size_t	len;
-
-	len = 0;
-	if (!str)
-		return (0);
-	while (str[len] != '\0')
-		len++;
-	return (len);
+	g_var.count = 0;
+	if (s == NULL)
+		return (g_var.count = ft_putstr_fd("(null)", 1));
+	while (*s)
+	{
+		g_var.count += ft_putchar_fd(*s, fd);
+		s++;
+	}
+	return (g_var.count);
 }
