@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 09:54:26 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/19 12:58:45 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/20 14:22:32 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ft_putnbr_fd(int n, int fd)
 {
-	var.count = 0;
-	var.top = 0;
+	g_var.count = 0;
+	g_var.top = 0;
 	if (n == 0)
-		return (var.count += write(1, "0", 1));
+		return (g_var.count += write(1, "0", 1));
 	else
 	{
 		if (n == -2147483648)
@@ -28,16 +28,17 @@ int	ft_putnbr_fd(int n, int fd)
 			{
 				ft_putchar_fd('-', fd);
 				n = -n;
-				var.count++;
+				g_var.count++;
 			}
 			while (n > 0)
 			{
-				var.stack[var.top++] = n % 10;
+				g_var.stack[g_var.top++] = n % 10;
 				n /= 10;
 			}
-			while (var.top > 0)
-				var.count += ft_putchar_fd(var.stack[--var.top] + '0', fd);
+			while (g_var.top > 0)
+				g_var.count += ft_putchar_fd(g_var.stack[--g_var.top] + '0',
+						fd);
 		}
 	}
-	return (var.count);
+	return (g_var.count);
 }

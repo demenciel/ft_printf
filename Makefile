@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 12:30:05 by acouture          #+#    #+#              #
-#    Updated: 2023/01/19 09:49:20 by acouture         ###   ########.fr        #
+#    Updated: 2023/01/20 14:24:09 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = libftprintf.a
 SRC =	ft_printf.c \
 		ft_putnbr_unsigned_fd.c \
 		ft_putpointer_fd.c \
-		ft_itoa_to_hexa.c \
+		ft_puthexa.c \
 		ft_putpointer_fd.c \
 		ft_putchar_fd.c \
 		ft_putnbr_fd.c \

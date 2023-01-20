@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:30:32 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/19 12:34:31 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/20 14:23:43 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_printf(const char *format, ...)
 	va_list	args;
 	int		count;
 
-	var.fd = STDOUT_FILENO;
+	g_var.fd = STDOUT_FILENO;
 	va_start(args, format);
 	count = 0;
 	if (*format == '\0')
@@ -31,7 +31,7 @@ int	ft_printf(const char *format, ...)
 		}
 		else
 		{
-			count += ft_putchar_fd(format[var.i], var.fd);
+			count += ft_putchar_fd(format[g_var.i], g_var.fd);
 		}
 		format++;
 	}
@@ -41,7 +41,7 @@ int	ft_printf(const char *format, ...)
 
 int	check_format_sp(char c, va_list args)
 {
-	int	count;
+	int		count;
 
 	count = 0;
 	if (c == 'c')
@@ -55,16 +55,14 @@ int	check_format_sp(char c, va_list args)
 	else if (c == 'u')
 		count += ft_putnbr_unsigned_fd((va_arg(args, unsigned int)), 1);
 	else if (c == 'x')
-		count += ft_itoa_to_hexa((va_arg(args, long long unsigned int)), c);
+		count += ft_puthexa((va_arg(args, long long unsigned int)), c);
 	else if (c == 'X')
-		count += ft_itoa_to_hexa((va_arg(args, long long unsigned int)), c);
+		count += ft_puthexa((va_arg(args, long long unsigned int)), c);
 	else if (c == '%')
 	{
-		char c;
 		c = '%';
 		write(1, &c, 1);
-		count++; 
+		count++;
 	}
-		
 	return (count);
 }

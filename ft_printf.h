@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 12:30:27 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/20 14:03:11 by acouture         ###   ########.fr       */
+/*   Created: 2023/01/20 14:10:15 by acouture          #+#    #+#             */
+/*   Updated: 2023/01/20 14:23:01 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_PRINTF
-# define LIBFT_PRINTF
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdarg.h>
 # include <stdlib.h>
@@ -19,25 +19,26 @@
 
 typedef struct format_list
 {
-	char	*temp;
-	char	*base;
-	int		i;
-	int		fd;
-	int		count;
-	int		stack[10];
-	int		top;
-}			var_list;
-var_list	var;
+	char			*temp;
+	char			*base;
+	int				i;
+	int				fd;
+	int				count;
+	int				stack[10];
+	int				top;
+}					t_var_list;
 
-int			ft_printf(const char *format, ...);
-int			check_format_sp(char c, va_list args);
+struct format_list	g_var;
 
-int			ft_putnbr_unsigned_fd(unsigned int u, int fd);
-int			ft_puthexa(unsigned int nb, char c);
-int			ft_putpointer_fd(uintptr_t y);
-int			ft_putchar_fd(char c, int fd);
-int			ft_putnbr_fd(int n, int fd);
-int			ft_putstr_fd(char *s, int fd);
-size_t		ft_strlen(const char *str);
+int					ft_printf(const char *format, ...);
+int					check_format_sp(char c, va_list args);
+
+int					ft_putnbr_unsigned_fd(unsigned int u, int fd);
+int					ft_puthexa(unsigned int nb, char c);
+int					ft_putpointer_fd(uintptr_t y);
+int					ft_putchar_fd(char c, int fd);
+int					ft_putnbr_fd(int n, int fd);
+int					ft_putstr_fd(char *s, int fd);
+size_t				ft_strlen(const char *str);
 
 #endif
