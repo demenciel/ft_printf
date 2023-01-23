@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:30:32 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/20 16:22:54 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/23 12:33:08 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_printf(const char *format, ...)
 	return (count);
 }
 
-int format_iter(int count, const char *format, va_list args)
+int	format_iter(int count, const char *format, va_list args)
 {
 	while (*format)
 	{
@@ -34,9 +34,15 @@ int format_iter(int count, const char *format, va_list args)
 		{
 			format++;
 			count += check_format_sp(*format, args);
+			if (count == -1)
+				return (-1);
 		}
 		else
+		{
 			count += ft_putchar_fd(*format, 1);
+			if (count == -1)
+				return (-1);
+		}
 		format++;
 	}
 	return (count);
@@ -44,7 +50,7 @@ int format_iter(int count, const char *format, va_list args)
 
 int	check_format_sp(char c, va_list args)
 {
-	int		count;
+	int	count;
 
 	count = 0;
 	if (c == '%')
@@ -63,5 +69,7 @@ int	check_format_sp(char c, va_list args)
 		count += ft_puthexa((va_arg(args, long long unsigned int)), c);
 	else if (c == 'X')
 		count += ft_puthexa((va_arg(args, long long unsigned int)), c);
+	else
+		return (-1);
 	return (count);
 }

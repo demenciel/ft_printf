@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:30:15 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/20 15:53:52 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/23 13:02:17 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ static int	ft_pointer_to_hexa(uintptr_t nb)
 
 	g_var.count = 0;
 	if (nb == 0)
-	{
-		g_var.count += write(1, "0x0", 3);
-		return (g_var.count);
-	}
+		return (write(1, "0x0", 3));
 	g_var.base = "0123456789abcdef";
 	str = malloc(sizeof(char) * n_len(nb) + 1);
 	if (!str)
@@ -51,7 +48,7 @@ static int	ft_pointer_to_hexa(uintptr_t nb)
 	g_var.count += ft_putstr_fd("0x", 1);
 	ft_putstr_fd(str, 1);
 	free(str);
-	return (g_var.count + 2);
+	return (g_var.count);
 }
 
 int	ft_putpointer_fd(uintptr_t y)

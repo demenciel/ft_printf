@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:30:40 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/20 15:53:42 by acouture         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:35:03 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ static unsigned int	n_len(unsigned int n)
 	i = 0;
 	if (n == 0)
 		return (1);
-	if (n < 0)
-		i++;
 	while (n > 0)
 	{
 		n = n / 16;
@@ -64,9 +62,8 @@ int	ft_puthexa(unsigned int nb, char c)
 	i = n_len(nb) - 1;
 	while (nb > 0)
 	{
-		str[i] = base[nb % 16];
+		str[i--] = base[nb % 16];
 		nb = nb / 16;
-		i--;
 	}
 	count += ft_putstr_fd(low_to_up(c, str), 1);
 	free(str);
